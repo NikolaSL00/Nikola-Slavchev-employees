@@ -1,5 +1,6 @@
 .table-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -8,9 +9,16 @@ table, th, td {
     border: 1px solid;
 }
 
+td{
+    padding-left: 5px;
+}
+
+
 .table{
     border-collapse: collapse;
     margin: 25px 0;
     font-size: 0.9em;
     min-width: 400px;
+
+    margin-bottom: 2rem;
 }
