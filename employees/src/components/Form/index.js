@@ -4,6 +4,7 @@ import Papa from "papaparse";
 
 const Form = ({ setData }) => {
   const [file, setFile] = useState(null);
+  const [error, setError] = useState("");
 
   const handleFileChange = (e) => {
     setFile(() => e.target.files[0]);
@@ -17,8 +18,12 @@ const Form = ({ setData }) => {
     }
 
     Papa.parse(file, {
+      worker: true,
       complete: function (results) {
         setData(results.data);
+      },
+      error: function (error) {
+        setError(error.message);
       },
     });
   };
@@ -34,7 +39,10 @@ const Form = ({ setData }) => {
         <div className="file-info">{file && `${file.name} - ${file.type}`}</div>
       </div>
 
-      <button className="btn">Upload</button>
+      <div className="file-container">
+        <button className="btn">Upload</button>
+        {error && <p>{error}</p>}
+      </div>
     </form>
   );
 };
