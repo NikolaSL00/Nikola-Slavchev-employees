@@ -14,7 +14,7 @@ const ShowInfo = ({ data }) => {
           <tr>
             <th>Employee ID #1</th>
             <th>Employee ID #2</th>
-            <th>Project ID #2</th>
+            <th>Project ID</th>
             <th>Days Worked</th>
           </tr>
         </thead>
